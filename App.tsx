@@ -1,11 +1,17 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { BackHandler, StatusBar, StyleSheet, View, RefreshControl, ScrollView } from 'react-native';
-import { WebView } from 'react-native-webview';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import SplashScreen from 'react-native-splash-screen';
+import React, {useRef, useState, useEffect} from 'react';
+import {
+  BackHandler,
+  StatusBar,
+  StyleSheet,
+  View,
+  RefreshControl,
+  ScrollView,
+} from 'react-native';
+import {WebView} from 'react-native-webview';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Orientation from 'react-native-orientation-locker'; // Orientation modülünü ekleyin
-
+import Orientation from 'react-native-orientation-locker';
+import SplashScreen from './src/components/SplashScreen';
 const DEFAULT_URL = 'https://izucampus.social/';
 
 const App: React.FC = () => {
@@ -13,9 +19,9 @@ const App: React.FC = () => {
   const [canGoBack, setCanGoBack] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [currentUrl, setCurrentUrl] = useState(DEFAULT_URL);
+  const [isSplashVisible, setIsSplashVisible] = useState(true); // Splash screen için state
 
   useEffect(() => {
-    SplashScreen.hide();
     Orientation.lockToPortrait(); // Ekranı dikey moda kilitle
 
     const loadLastVisitedUrl = async () => {
@@ -39,11 +45,14 @@ const App: React.FC = () => {
       return false;
     };
 
-    const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
 
     return () => {
       backHandler.remove();
-      Orientation.unlockAllOrientations(); // Uygulama kapandığında kilidi kaldır (isteğe bağlı)
+      Orientation.unlockAllOrientations();
     };
   }, [canGoBack]);
 
@@ -59,17 +68,26 @@ const App: React.FC = () => {
     setTimeout(() => setRefreshing(false), 1000);
   };
 
+  if (isSplashVisible) {
+    return <SplashScreen onFinish={() => setIsSplashVisible(false)} />;
+  }
+
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="dark-content" translucent={false} backgroundColor="#E9ECEF" />
+      <StatusBar
+        barStyle="dark-content"
+        translucent={false}
+        backgroundColor="#E9ECEF"
+      />
       <ScrollView
-        contentContainerStyle={{ flex: 1 }}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-      >
+        contentContainerStyle={{flex: 1}}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <View style={styles.container}>
           <WebView
             ref={webViewRef}
-            source={{ uri: currentUrl }}
+            source={{uri: currentUrl}}
             onNavigationStateChange={handleNavigationChange}
             allowsBackForwardNavigationGestures={true}
             javaScriptEnabled={true}
