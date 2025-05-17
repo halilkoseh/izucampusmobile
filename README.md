@@ -1,6 +1,5 @@
 # İZU Campus - University Social Platform
 
-![İZU Campus](https://via.placeholder.com/800x200/0d6efd/FFFFFF?text=İZU+Campus)
 
 A comprehensive social networking platform designed specifically for Istanbul Sabahattin Zaim University community, connecting students, academicians, mentors, and clubs in a unified digital environment.
 
