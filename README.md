@@ -50,63 +50,6 @@ A comprehensive social networking platform designed specifically for Istanbul Sa
 - **State Management**: React Hooks
 - **Routing**: React Router
 
-## 📋 Requirements
-
-- PHP >= 8.0
-- Composer
-- Node.js >= 16.0
-- MySQL >= 5.7
-- npm or yarn
-
-## 🚀 Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/campus.git
-   cd campus
-   ```
-
-2. **Install PHP dependencies**
-   ```bash
-   composer install
-   ```
-
-3. **Install JavaScript dependencies**
-   ```bash
-   npm install
-   ```
-
-4. **Environment setup**
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-
-5. **Configure database**
-   - Update the `.env` file with your database credentials:
-     ```
-     DB_CONNECTION=mysql
-     DB_HOST=127.0.0.1
-     DB_PORT=3306
-     DB_DATABASE=campus_1
-     DB_USERNAME=your_username
-     DB_PASSWORD=your_password
-     ```
-
-6. **Run migrations**
-   ```bash
-   php artisan migrate
-   ```
-
-7. **Build frontend assets**
-   ```bash
-   npm run dev
-   ```
-
-8. **Start the development server**
-   ```bash
-   php artisan serve
-   ```
 
 ## 📱 Usage Scenarios
 
@@ -157,11 +100,7 @@ This project was developed by a dedicated team with expertise in web development
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📧 Contact
 
-For any inquiries about the project, please contact:
-- Email: contact@izucampus.edu (placeholder)
-- Website: https://izucampus.edu (placeholder)
 
 ---
 
