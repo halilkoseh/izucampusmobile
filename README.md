@@ -1,98 +1,168 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# İZU Campus - University Social Platform
 
-# Getting Started
+![İZU Campus](https://via.placeholder.com/800x200/0d6efd/FFFFFF?text=İZU+Campus)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A comprehensive social networking platform designed specifically for Istanbul Sabahattin Zaim University community, connecting students, academicians, mentors, and clubs in a unified digital environment.
 
-## Step 1: Start Metro
+## 🌟 Overview
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+İZU Campus is a dynamic platform that bridges the gap between different members of the university ecosystem, providing them with specialized tools for communication, knowledge sharing, and community building. The platform offers various user roles catering to the specific needs of students, academicians, mentors, and clubs.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## ✨ Key Features
 
-```sh
-# Using npm
-npm start
+### User Profiles and Authentication
+- Multi-role user system: Students, Academicians, Mentors, Clubs
+- Secure email verification system
+- Password reset functionality
+- Student information extraction from student ID numbers
 
-# OR using Yarn
-yarn start
-```
+### Social Network Features
+- Post sharing (text and images)
+- 24-hour Story feature
+- Like and comment on posts
+- User following system
+- Personalized content feed
 
-## Step 2: Build and run your app
+### Academic Tools
+- Q&A platform (AskMe) for academic questions
+- Upvote/downvote functionality for answers
+- Academic profile showcasing for faculty members
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Communication Tools
+- Direct messaging between users
+- File sharing capabilities
+- Real-time chat (planned)
 
-### Android
+## 🛠️ Technical Stack
 
-```sh
-# Using npm
-npm run android
+### Backend
+- **Framework**: Laravel 10.x
+- **PHP Version**: 8.x
+- **Database**: MySQL
+- **Authentication**: Laravel Sanctum (Token-based)
+- **Email Service**: SMTP (Gmail)
+- **File Storage**: Local storage with Laravel's filesystem
 
-# OR using Yarn
-yarn android
-```
+### Frontend
+- **Framework**: React 18.x
+- **Build Tool**: Vite
+- **UI Components**: Custom components with modern styling
+- **State Management**: React Hooks
+- **Routing**: React Router
 
-### iOS
+## 📋 Requirements
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+- PHP >= 8.0
+- Composer
+- Node.js >= 16.0
+- MySQL >= 5.7
+- npm or yarn
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## 🚀 Installation & Setup
 
-```sh
-bundle install
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/campus.git
+   cd campus
+   ```
 
-Then, and every time you update your native dependencies, run:
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-```sh
-bundle exec pod install
-```
+3. **Install JavaScript dependencies**
+   ```bash
+   npm install
+   ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+4. **Environment setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-```sh
-# Using npm
-npm run ios
+5. **Configure database**
+   - Update the `.env` file with your database credentials:
+     ```
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=campus_1
+     DB_USERNAME=your_username
+     DB_PASSWORD=your_password
+     ```
 
-# OR using Yarn
-yarn ios
-```
+6. **Run migrations**
+   ```bash
+   php artisan migrate
+   ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+7. **Build frontend assets**
+   ```bash
+   npm run dev
+   ```
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+8. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
 
-## Step 3: Modify your app
+## 📱 Usage Scenarios
 
-Now that you have successfully run the app, let's make changes!
+### For Students
+- Connect with classmates and share study materials
+- Ask academic questions through the Q&A platform
+- Follow university clubs for event updates
+- Create a personalized academic profile
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### For Academicians
+- Share research findings and academic announcements
+- Answer student questions in the Q&A section
+- Showcase expertise and research areas
+- Connect with other faculty members
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### For Mentors
+- Provide career guidance to students
+- Share industry experience and insights
+- Connect with potential talents
+- Establish a professional network
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### For Clubs
+- Announce events and activities
+- Recruit new members
+- Showcase past events and achievements
+- Connect with the student body
 
-## Congratulations! :tada:
+## 🔐 Security Features
 
-You've successfully run and modified your React Native App. :partying_face:
+- Email verification for new accounts
+- Token-based API authentication
+- Password hashing and secure storage
+- Profile information protection
 
-### Now what?
+## 🌐 Future Enhancements
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+- Integration with university's academic systems
+- Real-time notifications
+- Mobile application
+- Advanced analytics for user engagement
+- Virtual event hosting capabilities
 
-# Troubleshooting
+## 👥 Project Contributors
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+This project was developed by a dedicated team with expertise in web development, UX/UI design, and academic systems integration.
 
-# Learn More
+## 📄 License
 
-To learn more about React Native, take a look at the following resources:
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# izucampusmobile
+## 📧 Contact
+
+For any inquiries about the project, please contact:
+- Email: contact@izucampus.edu (placeholder)
+- Website: https://izucampus.edu (placeholder)
+
+---
+
+© 2025 İZU Campus - Connecting the University Community Digitally
